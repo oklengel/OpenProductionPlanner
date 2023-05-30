@@ -1,12 +1,15 @@
-# Boilerplate: Docker Python MariaDB
+# Open Production Planner
 
-Build a Python service on top of a MariaDB. Deploy it using Docker-compose.
+A small advanced planning solution demo using Vue, C++ and Postgres.
 
 ## Requirements
 - Docker installed
 - Docker compose installed
 
-## Run
+
+## Build &b Run
 ```shell
+git clone "this repo"
+cd OpenProductionPlanner
 docker-compose up -d --build
 ```

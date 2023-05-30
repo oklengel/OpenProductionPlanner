@@ -2,30 +2,48 @@ version: "3.5"
 
 services:
   db:
-    image: mariadb:10.8
+    image: postgres:latest
+    container_name: db
     ports:
-      - "4242:3306"
+      - "5432:5432"
     environment:
-      MYSQL_DATABASE: mydb
-      MYSQL_USER: myuser
-      MYSQL_PASSWORD: mypassword
-      MYSQL_ROOT_PASSWORD: rootbigpp
-      # Other ------
-      TZ: Europe/Berlin
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: OOP
     volumes:
-      - "mysql-data:/var/lib/mysql"
-      - ./mysql_init:/docker-entrypoint-initdb.d # create tables at container creation
+     - "postgres-data:/var/lib/postgresql/data"
+     - "./sql/init.sql:/docker-entrypoint-initdb.d/init.sql"
 
-  web:
-    build: ./py-service
+  backend:
+    build: ./backend
+    container_name: backend
     ports:
-      - "8080:8080"
+      - "8083:8083"
     environment:
-      MYSQL_HOST: db # dns resolves actual address
-      MYSQL_DATABASE: mydb
-      MYSQL_PORT: 3306
-      MYSQL_USER: myuser
-      MYSQL_PASSWORD: mypassword
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: OOP
+      POSTGRES_USER: myuser
+      POSTGRES_HOST: db
+    depends_on:
+      - db
+
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    environment:
+      PORT: 3003
+      PROXY_API: backend:8083/
+    ports:
+      - "3003:3003"
+    depends_on:
+      - backend
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    ports:
+      - "8081:8080"
+    depends_on:
+      - db
 
 volumes:
-  mysql-data:
+  postgres-data:

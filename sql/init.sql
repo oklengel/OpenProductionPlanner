@@ -1,0 +1,43 @@
+
+use schema OOP;
+
+CREATE TABLE IF NOT EXISTS recipes (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(20) NOT NULL,
+    duration VARCHAR(20) NOT NULL,
+    data TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS production (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(20) NOT NULL,
+    recipe VARCHAR(20) NOT NULL,
+    amount VARCHAR(20) NOT NULL,
+);
+
+CREATE TABLE IF NOT EXISTS tools (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS resources (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(20) NOT NULL,
+    amount int NOT NULL,
+    unit VARCHAR(20) NOT NULL,
+    art VARCHAR(20) NOT NULL,
+    area VARCHAR(20) NOT NULL
+);
+
+
+CREATE TABLE Person (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  age INT NOT NULL
+);
+
+CREATE TABLE Qualification (
+  id SERIAL PRIMARY KEY,
+  person_id INT REFERENCES Person(id),
+  degree VARCHAR(50) NOT NULL
+);
