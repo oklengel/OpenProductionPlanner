@@ -3,7 +3,7 @@
 
 RezeptManager::RezeptManager()
     : DatabaseManager("db","5432","OOP","postgres","example") {
-    std::cout<<"should be connected"<<std::endl;
+   
     // Weitere Initialisierungen für RezeptManager
 }
 

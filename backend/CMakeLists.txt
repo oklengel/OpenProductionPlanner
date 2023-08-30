@@ -17,6 +17,10 @@ target_sources(RecipeServer PRIVATE
     ./src/HttpManager.cpp
     ./src/RezeptManager.cpp
     ./src/ProductionManager.cpp
+    ./src/PersonalManager.cpp
+    ./src/MaschinenManager.cpp
+    ./src/ResourcenManager.cpp
+    ./src/SzenarioManager.cpp
 )
 
 target_include_directories(RecipeServer PRIVATE ${PostgreSQL_INCLUDE_DIRS})

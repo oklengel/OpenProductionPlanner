@@ -30,11 +30,11 @@ public:
 private:
     http_listener listener_;
     RezeptManager *rezeptManager;
-    ResourcenManager *ressourcenManager;
+    ResourcenManager *resourcenManager;
     PersonalManager *personalManager;
     ProductionManager *productionManager;
-    PlanerManager *planerManager;
-    MasschinenManager *masschinenManager
+    PlannerManager *plannerManager;
+    MaschinenManager *maschinenManager;
     SzenarioManager *szenarioManager;
     //root
     void handle_request(http_request req);

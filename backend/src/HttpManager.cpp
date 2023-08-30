@@ -6,7 +6,7 @@ HttpManager::HttpManager(const std::string &host, const std::string &port)
       productionManager(new ProductionManager()),
       resourcenManager(new ResourcenManager()),
       personalManager(new PersonalManager()),
-      maschinenManger(new MaschinenManager()),
+      maschinenManager(new MaschinenManager()),
       szenarioManager(new SzenarioManager()){
 }
 

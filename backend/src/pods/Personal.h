@@ -7,12 +7,16 @@ class PERSON {
 private:
     int id;
     std::string name;
-    std::string Job;
-    std::string Zeitmodell;
+    std::string job;
+    std::string zeitmodell;
     std::short wochenarbeitszeit;
 
 public:
-    PERSON(int id, const std::string& name, const std::string& duration, const std::string& data);
+    PERSON(int id,
+    const std::string& name,
+    const std::string& job,
+    const std::string& zeitmodell
+    );
 
     // Getter- und Setter-Methoden
 
