@@ -18,8 +18,9 @@ RUN dnf -y update && dnf -y install \
 # Arbeitsverzeichnis im Container erstellen
 WORKDIR /app
 
-# Kopieren des Quellcodes in das Arbeitsverzeichnis im Container
+# Kopieren des Quellcodes & ENV Config in das Arbeitsverzeichnis im Container
 COPY . /app
+COPY ../*.env /app
 
 # Kompilieren des Backend-Codes
 RUN mkdir build && cd build && cmake -DPOSTGRES=ON .. && \
@@ -39,5 +40,5 @@ ENV DB_PASSWORD=mypassword
 ENV DB_NAME=recipes
 
 # Skript zum Starten des Backend-Servers im Container
-#CMD ./build/RecipeServer
-ENTRYPOINT ["bash", "-c", "./build/RecipeServer 8083"]
+#CMD ./build/OOPbackend
+ENTRYPOINT ["bash", "-c", "./build/OOPbackend 8083"]

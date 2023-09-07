@@ -16,12 +16,13 @@ public:
     MaschinenManager();
     ~MaschinenManager();
 
-    //void addMaschine(std::string name,std::string rezept,std::string amount);
-    //void changeMaschine(int id, const std::string& name, const std::string& rezept, const std::string& amount);
-    //void deleteMaschine(int id);
+    void addMaschine(std::string name,std::string& maschineData);
+    void changeMaschine(int id,  std::string &name, std::string &machineData);
+    void deleteMaschine(int id);
     nlohmann::json getAllMaschinesJson(); 
 
 private:
+    DatabaseManager dbManager_;
     //std::vector<Maschine> Maschinee;
     std::vector<nlohmann::json> Maschines;
     int nextId;

@@ -1,0 +1,7 @@
+Todo Backend
+
+- DatabaseManager Konstruktor auf ENV umschreiben
+- MaschinenManager anpassen
+- RezeptManager anpassen
+- Personalmanager erzeugen
+- Planner erzeugen

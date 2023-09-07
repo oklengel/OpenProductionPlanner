@@ -1,5 +1,5 @@
 #include "DatabaseManager.h"
-
+/*
 DatabaseManager::DatabaseManager(const std::string &host,
                                  const std::string &port,
                                  const std::string &dbname,
@@ -8,6 +8,45 @@ DatabaseManager::DatabaseManager(const std::string &host,
     : connection_(nullptr), host_(host), port_(port), dbname_(dbname),
       user_(user), password_(password) {
   connect();
+}*/
+DatabaseManager::DatabaseManager()
+    : connection_(nullptr), host_(""), port_(""), dbname_(""),
+      user_(""), password_("") {
+  loadConfigFromFile("../.env");
+  connect();
+}
+/*
+POSTGRESintPort=3306
+POSTGRES_DATABASE="mydb"
+POSTGRES_USER="myuser"
+POSTGRES_PASSWORD="mypassword"
+*/
+void DatabaseManager::loadConfigFromFile(const std::string &filename) {
+  std::ifstream configFile(filename);
+  if (configFile.is_open()) {
+    std::string line;
+    while (std::getline(configFile, line)) {
+      std::istringstream iss(line);
+      std::string key, value;
+      if (std::getline(iss, key, '=') && std::getline(iss, value)) {
+        if (key == "DB_HOST") {
+          host_ = value;
+        } else if (key == "POSTGRESintPort") {
+          port_ = value;
+        } else if (key == "POSTGRES_DATABASE") {
+          dbname_ = value;
+        } else if (key == "POSTGRES_USER") {
+          user_ = value;
+        } else if (key == "POSTGRES_PASSWORD") {
+          password_ = value;
+        }
+      }
+    }
+    configFile.close();
+  } else {
+    std::cerr << "Unable to open config file: " << filename << std::endl;
+    // Hier können Sie eine geeignete Fehlerbehandlung hinzufügen.
+  }
 }
 
 DatabaseManager::~DatabaseManager() { disconnect(); }
