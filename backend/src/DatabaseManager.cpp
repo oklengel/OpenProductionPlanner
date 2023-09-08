@@ -12,10 +12,10 @@ DatabaseManager::DatabaseManager(const std::string &host,
 DatabaseManager::DatabaseManager()
     : connection_(nullptr), host_(""), port_(""), dbname_(""),
       user_(""), password_("") {
-  loadConfigFromFile("../.env");
+  loadConfigFromFile("config.txt");
   connect();
 }
-/*
+/* 
 POSTGRESintPort=3306
 POSTGRES_DATABASE="mydb"
 POSTGRES_USER="myuser"
@@ -41,6 +41,7 @@ void DatabaseManager::loadConfigFromFile(const std::string &filename) {
           password_ = value;
         }
       }
+      host_="db";//never change things since is part of a docker compose stack
     }
     configFile.close();
   } else {
@@ -59,6 +60,10 @@ bool DatabaseManager::connect() {
 
   if (PQstatus(connection_) != CONNECTION_OK) {
     std::cout << "Failed to connect to database." << std::endl;
+    std::cout << "Host:\t"<<host_<<"\n"<<
+                "Port:\t"<<port_<<"\n"<<
+                "USR:\t"<<user_<<"\n"<<
+                "PWD:\t"<<password_<<"\n"<<std::endl;
     return false;
   }
   std::cout << "DB connected" << std::endl;

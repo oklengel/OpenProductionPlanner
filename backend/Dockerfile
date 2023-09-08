@@ -20,10 +20,10 @@ WORKDIR /app
 
 # Kopieren des Quellcodes & ENV Config in das Arbeitsverzeichnis im Container
 COPY . /app
-COPY ../*.env /app
 
 # Kompilieren des Backend-Codes
-RUN mkdir build && cd build && cmake -DPOSTGRES=ON .. && \
+#RUN mkdir build &&
+RUN cd build && cmake -DPOSTGRES=ON .. && \
     make
 
 RUN pwd
