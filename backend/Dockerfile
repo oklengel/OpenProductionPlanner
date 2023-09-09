@@ -9,6 +9,8 @@ RUN dnf -y update && dnf -y install \
     make \
     git \
     postgresql-devel \
+    libpqxx\
+    libpqxx-devel \
     cpprest-devel \
     zlib \
     zlib-devel \
@@ -34,10 +36,10 @@ RUN ls ./build
 EXPOSE 8083
 
 # Umgebungsvariablen für die Datenbankverbindung setzen
-ENV DB_HOST=localhost
-ENV DB_USER=myuser
-ENV DB_PASSWORD=mypassword
-ENV DB_NAME=recipes
+#ENV DB_HOST=localhost
+#ENV DB_USER=myuser
+#ENV DB_PASSWORD=mypassword
+#ENV DB_NAME=recipes
 
 # Skript zum Starten des Backend-Servers im Container
 #CMD ./build/OOPbackend

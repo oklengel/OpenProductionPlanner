@@ -5,3 +5,4 @@ SzenarioManager::SzenarioManager()
    
     // Weitere Initialisierungen für RezeptManager
 }
+SzenarioManager::~SzenarioManager(){}

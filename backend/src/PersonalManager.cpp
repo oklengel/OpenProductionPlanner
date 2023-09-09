@@ -6,3 +6,5 @@ PersonalManager::PersonalManager()
    
     // Weitere Initialisierungen für RezeptManager
 }
+
+PersonalManager::~PersonalManager(){}

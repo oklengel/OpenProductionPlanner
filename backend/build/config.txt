@@ -1,10 +1,10 @@
 #DB settings
-POSTGRESintPort=3306
-POSTGRES_DATABASE="mydb"
-POSTGRES_DB="mydb"
-POSTGRES_USER="myuser"
-POSTGRES_PASSWORD="mypassword"
-POSTGRES_ROOT_PASSWORD="rootbigpp"
+POSTGRES_Port=5432
+POSTGRES_DB=OOP
+POSTGRES_USER=myuser
+POSTGRES_PASSWORD=mypassword
+POSTGRES_ROOT_PASSWORD=rootbigpp
+TimeZone=Europe/Berlin
 TimeZone="Europe/Berlin"
 #3rdPartyContainerVers
 POSTGRES_ver="latest"

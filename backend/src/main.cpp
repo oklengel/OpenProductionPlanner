@@ -8,7 +8,7 @@
 int main(int argc, char* argv[]) {
     // DatabaseManager initialisieren
     //DatabaseManager dbManager("db:5432");
-
+     
     //DatabaseManager dbManager(/*"db","5432","OOP","postgres","example"*/);
     std::cout << "Main: init DB Manager" << std::endl;
 

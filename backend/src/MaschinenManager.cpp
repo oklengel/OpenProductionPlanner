@@ -2,23 +2,23 @@
 
 MaschinenManager::MaschinenManager()
     : dbManager_(/*"db", "5432", "OOP", "postgres", "example"*/) {}
-
+MaschinenManager::~MaschinenManager(){}
 void MaschinenManager::addMaschine(std::string name, std::string &maschineData) {
-    if (dbManager_.connect()) {
+    /*if (dbManager_.connect()) {
         bool s = dbManager_.executeQuery("SELECT * FROM some_table");
         dbManager_.disconnect();
     } else {
         // Fehlerbehandlung für die Verbindung
-    }
+    }*/
 }
 
 void MaschinenManager::deleteMaschine(int id) {
-    if (dbManager_.connect()) {
+   /* if (dbManager_.connect()) {
         bool s = dbManager_.executeQuery("DELETE FROM some_table WHERE id = " + std::to_string(id));
         dbManager_.disconnect();
     } else {
         // Fehlerbehandlung für die Verbindung
-    }
+    }*/
 }
 
 void MaschinenManager::changeMaschine(int id,  std::string &name,

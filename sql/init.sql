@@ -1,4 +1,6 @@
 
+CREATE USER myuser WITH PASSWORD 'mypassword';
+
 use schema OOP;
 
 CREATE TABLE IF NOT EXISTS recipes (

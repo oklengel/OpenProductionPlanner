@@ -16,10 +16,6 @@ public:
     RezeptManager();
     ~RezeptManager();
 
-    void addRezept(std::string name,std::string dauer,std::string daten);
-    void changeRezept(int id, const std::string& name, const std::string& dauer, const std::string& daten);
-    void deleteRezept(int id);
-    nlohmann::json getAllRezepteJson(); //✅
 
 private:
     //std::vector<Rezept> rezepte;

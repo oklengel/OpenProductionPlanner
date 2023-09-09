@@ -1,28 +1,31 @@
 cmake_minimum_required(VERSION 3.14)
 project(OOPbackend)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 # Fügen Sie hier die erforderlichen Bibliotheken hinzu, wenn Sie sie benötigen.
 # Zum Beispiel, wenn Sie PostgreSQL verwenden möchten:
 find_package(PostgreSQL REQUIRED)
 find_package(cpprestsdk REQUIRED)
 
-add_executable(OOPbackend ./src/main.cpp)
+# Fügen Sie die Pfade zu den Dateien der Env-Klasse hinzu
+set(ENV_CLASS_DIR extern/LibEnv)
+include_directories(${ENV_CLASS_DIR})
 
-# Fügen Sie hier Ihre Quelldateien hinzu.
-target_sources(OOPbackend PRIVATE
-    ./src/main.cpp
-    ./src/DatabaseManager.cpp
-    ./src/HttpManager.cpp
-    ./src/RezeptManager.cpp
-    ./src/ProductionManager.cpp
-    ./src/PersonalManager.cpp
-    ./src/MaschinenManager.cpp
-    ./src/ResourcenManager.cpp
-    ./src/SzenarioManager.cpp
-)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lpqxx -lpq")
 
-target_include_directories(OOPbackend PRIVATE ${PostgreSQL_INCLUDE_DIRS})
+set(PQXX /usr/local/include/pqxx)
 
-target_link_libraries(OOPbackend PRIVATE ${PostgreSQL_LIBRARIES} cpprestsdk::cpprest)
+find_library(PQXX_LIB pqxx)
+find_library(PQ_LIB pq)
+
+file(GLOB_RECURSE SOURCE_FILES "src/*.cpp")
+
+# Fügen Sie die Quelldateien der Env-Klasse hinzu
+list(APPEND SOURCE_FILES ${ENV_CLASS_DIR}/Env.cpp)
+
+add_executable(OOPbackend ${SOURCE_FILES})
+
+target_include_directories(OOPbackend PRIVATE ${ENV_CLASS_DIR})
+
+target_link_libraries(OOPbackend PRIVATE ${PQXX_LIB} ${PQ_LIB} cpprestsdk::cpprest)

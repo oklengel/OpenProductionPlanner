@@ -5,3 +5,4 @@ ResourcenManager::ResourcenManager()
    
     // Weitere Initialisierungen für RezeptManager
 }
+ResourcenManager::~ResourcenManager(){}
