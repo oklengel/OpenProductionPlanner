@@ -1,7 +1,7 @@
 #include "MaschinenManager.h"
 
 MaschinenManager::MaschinenManager()
-    : dbManager_(/*"db", "5432", "OOP", "postgres", "example"*/) {}
+  : DatabaseManager("buggy") {}
 MaschinenManager::~MaschinenManager(){}
 void MaschinenManager::addMaschine(std::string name, std::string &maschineData) {
     /*if (dbManager_.connect()) {

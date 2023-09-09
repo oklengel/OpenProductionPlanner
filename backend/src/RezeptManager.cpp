@@ -2,7 +2,7 @@
 
 
 RezeptManager::RezeptManager()
-    : DatabaseManager(/*"db","5432","OOP","postgres","example"*/) {
+    : DatabaseManager("RezeptManager") {
    
     // Weitere Initialisierungen für RezeptManager
 }

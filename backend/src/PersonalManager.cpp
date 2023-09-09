@@ -2,7 +2,7 @@
 
 
 PersonalManager::PersonalManager()
-    : DatabaseManager(/*"db","5432","OOP","postgres","example"*/) {
+    : DatabaseManager("Personalmanager") {
    
     // Weitere Initialisierungen für RezeptManager
 }

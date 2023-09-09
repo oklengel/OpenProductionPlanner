@@ -22,7 +22,7 @@ public:
     nlohmann::json getAllMaschinesJson(); 
 
 private:
-    DatabaseManager dbManager_;
+    //DatabaseManager dbManager_;
     //std::vector<Maschine> Maschinee;
     std::vector<nlohmann::json> Maschines;
     int nextId;

@@ -13,7 +13,7 @@
 
 class DatabaseManager {
 public:
-  DatabaseManager(); // Hier sollte der Klassenname "DatabaseManager" angegeben werden.
+  DatabaseManager(const std::string name); // Hier sollte der Klassenname "DatabaseManager" angegeben werden.
   ~DatabaseManager();
 };
 

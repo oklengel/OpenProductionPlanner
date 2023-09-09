@@ -1,7 +1,7 @@
 #include "ResourcenManager.h"
 
 ResourcenManager::ResourcenManager()
-    : DatabaseManager(/*"db","5432","OOP","postgres","example"*/) {
+    : DatabaseManager("RessourcenManager") {
    
     // Weitere Initialisierungen für RezeptManager
 }

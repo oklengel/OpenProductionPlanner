@@ -1,7 +1,7 @@
 #include "SzenarioManager.h"
 
 SzenarioManager::SzenarioManager()
-    : DatabaseManager(/*"db","5432","OOP","postgres","example"*/) {
+    : DatabaseManager("SzenarioManager") {
    
     // Weitere Initialisierungen für RezeptManager
 }

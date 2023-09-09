@@ -1,7 +1,7 @@
 #include "PlanerManager.h"
 
 PlannerManager::PlannerManager()
-    : DatabaseManager(/*"db","5432","OOP","postgres","example*/) {
+    : DatabaseManager("PlanerManager") {
    
     // Weitere Initialisierungen für RezeptManager
 }
