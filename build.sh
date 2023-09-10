@@ -6,17 +6,16 @@ ENV_FILE_PATH=.env
 # Verzeichnis, in das die .env-Datei kopiert werden soll
 BACKEND_DIR=backend/build
 
-# Name deiner Docker-Compose-Datei (normalerweise docker-compose.yml)
-DOCKER_COMPOSE_FILE=docker-compose.yml
+
 
 # Kopiere die .env-Datei in das backend-Verzeichnis
-cp "$ENV_FILE_PATH" "$BACKEND_DIR"
+#cp "$ENV_FILE_PATH" "$BACKEND_DIR"
 
 
 
-cd $BACKEND_DIR
-mv .env config.txt
-cd ../..
+#cd $BACKEND_DIR
+#mv .env config.txt
+#cd ../..
 
 # Führen Sie Docker Compose aus, um die Container zu erstellen und auszuführen
 docker-compose -f "docker-compose.yml" down

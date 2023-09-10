@@ -24,8 +24,7 @@ WORKDIR /app
 COPY . /app
 
 # Kompilieren des Backend-Codes
-#RUN mkdir build &&
-RUN cd build && cmake -DPOSTGRES=ON .. && \
+RUN mkdir build && cd build && cmake -DPOSTGRES=ON .. && \
     make
 
 RUN pwd
@@ -43,4 +42,7 @@ EXPOSE 8083
 
 # Skript zum Starten des Backend-Servers im Container
 #CMD ./build/OOPbackend
+
+#Sleep for 60secs since depends on db is.... sometimes not working
+#RUN sleep 1m 
 ENTRYPOINT ["bash", "-c", "./build/OOPbackend 8083"]

@@ -3,7 +3,7 @@
 
 ProductionManager::ProductionManager()
     : DatabaseManager("ProductionManager") {
-    std::cout<<"should be connected"<<std::endl;
+    //std::cout<<"should be connected"<<std::endl;
     // Weitere Initialisierungen für ProductionManager
 }
 

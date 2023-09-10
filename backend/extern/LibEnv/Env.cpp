@@ -19,7 +19,7 @@ Env::Env(std::string path) {
     }
     envfile.close();
   } else {
-    std::cout << "Unable to open env file";
+    std::cout << "Unable to open env file " + path + " ";
   }
 }
 
