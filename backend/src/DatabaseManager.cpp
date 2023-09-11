@@ -1,16 +1,12 @@
 #include "DatabaseManager.h"
+/*
 
+Database Connector
+
+*/
 DatabaseManager::DatabaseManager(std::string name) {
   std::cout << "Constructor called from " << name << std::endl;
-  // Env env("config.txt");
-  // std::string c = "dbname = " + env.getVal("POSTGRES_DB") + " user = " +
-  // env.getVal("POSTGRES_USER") + " password = " +
-  // env.getVal("POSTGRES_PASSWORD") + " hostaddr = db port = " +
-  // env.getVal("POSTGRES_Port"); std::string c = std::string("dbname = ") +
-  // std::getenv("POSTGRES_DB") + " user = " + std::getenv("POSTGRES_USER") + "
-  // password = " + std::getenv("POSTGRES_PASSWORD") + " hostaddr = " +
-  // std::getenv("POSTGRES_Port");
-  // check env vars
+
 
   const char *debugEnv = std::getenv("LOG_LEVEL");
   if (debugEnv != nullptr) {
@@ -71,9 +67,9 @@ DatabaseManager::DatabaseManager(std::string name) {
     connectionStr += "user=" + std::string(postgresUSR) + " ";
     connectionStr += "password=" + std::string(postgresPWD) + " ";
 
-    pqxx::connection C(connectionStr);
-    if (C.is_open()) {
-      std::cout << "Opened database successfully: " << C.dbname() << std::endl;
+    Connection = pqxx::connection(connectionStr);
+    if (Connection.is_open()) {
+      std::cout << "Opened database successfully: " << Connection.dbname() << std::endl;
     } else {
       std::cout << "Can't open database" << std::endl;
       // Hier kannst du eine geeignete Fehlerbehandlung hinzufügen.

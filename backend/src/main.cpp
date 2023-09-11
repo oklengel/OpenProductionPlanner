@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
     // HttpManager initialisieren
     HttpManager httpManager("0.0.0.0", "8083");
     std::cout << "Main: init http Manager" << std::endl;
-    bool debug=false;
+   
     // Server starten
     httpManager.start();
     std::cout << "Main: Server started" << std::endl;

@@ -1,7 +1,7 @@
 
-CREATE USER myuser WITH PASSWORD 'mypassword';
+/*CREATE USER myuser WITH PASSWORD 'mypassword';*/
 
-use schema OOP;
+/*use schema OOP;*/
 
 CREATE TABLE IF NOT EXISTS recipes (
     id SERIAL PRIMARY KEY,
@@ -32,13 +32,13 @@ CREATE TABLE IF NOT EXISTS resources (
 );
 
 
-CREATE TABLE Person (
+CREATE TABLE IF NOT EXISTS Person (
   id SERIAL PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
   age INT NOT NULL
 );
 
-CREATE TABLE Qualification (
+CREATE TABLE IF NOT EXISTS Qualification (
   id SERIAL PRIMARY KEY,
   person_id INT REFERENCES Person(id),
   degree VARCHAR(50) NOT NULL

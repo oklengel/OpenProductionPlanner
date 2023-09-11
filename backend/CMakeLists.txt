@@ -9,8 +9,8 @@ find_package(PostgreSQL REQUIRED)
 find_package(cpprestsdk REQUIRED)
 
 # Fügen Sie die Pfade zu den Dateien der Env-Klasse hinzu
-set(ENV_CLASS_DIR extern/LibEnv)
-include_directories(${ENV_CLASS_DIR})
+##set(ENV_CLASS_DIR extern/LibEnv)
+##include_directories(${ENV_CLASS_DIR})
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lpqxx -lpq")
 
@@ -22,7 +22,7 @@ find_library(PQ_LIB pq)
 file(GLOB_RECURSE SOURCE_FILES "src/*.cpp")
 
 # Fügen Sie die Quelldateien der Env-Klasse hinzu
-list(APPEND SOURCE_FILES ${ENV_CLASS_DIR}/Env.cpp)
+##list(APPEND SOURCE_FILES ${ENV_CLASS_DIR}/Env.cpp)
 
 add_executable(OOPbackend ${SOURCE_FILES})
 

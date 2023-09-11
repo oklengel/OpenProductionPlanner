@@ -9,14 +9,16 @@
 #include <sstream>
 #include <string>
 
-#include "../extern/LibEnv/Env.h"
-#include "supportFunctions/stringTools.h"
+
 
 class DatabaseManager {
 public:
   DatabaseManager(const std::string name); // Hier sollte der Klassenname "DatabaseManager"
                                // angegeben werden.
   ~DatabaseManager();
+
+  bool transactionWithOutResult(std::string sql);
+
 
 
 private:
@@ -30,6 +32,8 @@ const char *postgresPORT;
 int logLevel;
 std::string connectionStr;
 
+protected:
+ pqxx::connection Connection;
 
 };
 

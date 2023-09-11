@@ -1,8 +1,12 @@
 #include "MaschinenManager.h"
+/*
 
-MaschinenManager::MaschinenManager()
-  : DatabaseManager("buggy") {}
+Controller for tools and machines
+
+*/
+MaschinenManager::MaschinenManager(): DatabaseManager("Maschienenmanager") {}
 MaschinenManager::~MaschinenManager(){}
+
 void MaschinenManager::addMaschine(std::string name, std::string &maschineData) {
     /*if (dbManager_.connect()) {
         bool s = dbManager_.executeQuery("SELECT * FROM some_table");

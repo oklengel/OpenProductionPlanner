@@ -1,5 +1,9 @@
 #include "PlanerManager.h"
+/*
 
+Controller for planer; schedules recipes
+
+*/
 PlannerManager::PlannerManager()
     : DatabaseManager("PlanerManager") {
    

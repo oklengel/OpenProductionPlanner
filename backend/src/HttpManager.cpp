@@ -1,5 +1,9 @@
 #include "HttpManager.h"
+/*
 
+Global REST Endpoint for the entire BACKEND
+
+*/
 HttpManager::HttpManager(const std::string &host, const std::string &port)
     : listener_("http://" + host + ":" + port + "/"),
       rezeptManager(new RezeptManager()),
